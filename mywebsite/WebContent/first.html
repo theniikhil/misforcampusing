@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JavaScript</title>
+<script type="text/javascript">
+function check()
+{
+	var uid=document.getElementById("uid").value;
+	var pwd=document.getElementById("pwd").value;
+	if(uid=="" || pwd=="")
+		{
+		alert("Please Enter Username and Password");
+		return false;
+		}
+	var len=uid.trim().length;
+	if(len<8)
+		{
+		alert("min 8 characters");
+		return false;
+		}
+	return true;
+}
+function strength_pwd()
+	{
+		var pwd=document.getElementById("pwd").value;
+		var len=pwd.length;
+		var str="";
+		if(len<=4)
+			str="<font color = red>Password is weak</font>";
+		else if(len<8)
+			str="<font color = blue>Password is medium</font>";
+		else
+			str="<font color = green>Password is strong</font>";
+			document.getElementById("sec1").innerHTML=str;
+	}
+</script>
+</head>
+<body>
+<form name=LogIn method=get>
+user id:<input type=text size=10 name=uid id=uid><br>
+password:<input type=password size=10 name=pwd id=pwd onkeyup="strength_pwd()"><br>
+<div id="sec1">   </div>
+<input type=submit name=submit value=submit onclick="return check()">
+</form>
+</body>
+</html>
